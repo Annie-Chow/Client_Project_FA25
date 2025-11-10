@@ -9,21 +9,60 @@
   <title>Resumes</title>
 </head>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const headerText = document.querySelector("header h1");
+
+    if (headerText) {
+      const fullText = headerText.textContent;
+      headerText.textContent = "";
+
+      let index = 0;
+      const typingSpeed = 120;
+      function typeLetter() {
+        headerText.textContent += fullText.charAt(index);
+        index++;
+        if (index < fullText.length) {
+          requestAnimationFrame(typeLetter);
+        }
+      }
+      typeLetter();
+    }
+  });
+</script>
+
+<script>
+  document.getElementById("current-year").innerText = new Date().getFullYear();
+</script>
+
 <body>
 
   <header>
-    <a href="#maincontent">Skip to Main Content</a>
-    <img src="images/UMSI_signature_vertical_informal_solidblue.jpg" alt="UMSI Logo">
-    <nav>
+   <a href="#maincontent">Skip to Main Content</a>
+
+   <div class="search-bar">
+      <form action="#" method="get">
+        <label for="site-search" class="visually-hidden">Search this site:</label>
+        <input type="search" id="site-search" name="q" placeholder="Search resources"
+          aria-label="Search through site content">
+        <button type="submit">Search</button>
+      </form>
+
+      <img src="images/UMSI_signature_vertical_informal_solidblue.jpg" alt="UMSI Logo">
+   </div>
+
+   <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="resume.html">Resumes</a></li>
+        <li><a href="resume.html" class="active">Resumes</a></li>
         <li><a href="Planning_Your_Job.html">Planning Your Job</a></li>
         <li><a href="Art_Portfolio.html">Art Portfolio</a></li>
       </ul>
-    </nav>
-    <h1>Resume Support</h1>
-  </header>
+   </nav>
+
+   <h1>Resume Support</h1>
+</header>
+
 
   <main class="maincontent" id="maincontent">
 
@@ -73,13 +112,20 @@
           <a href="https://umsi.instructure.com/courses/12345/pages/resume-rubric" target="_blank">Resume Rubric</a><br>
           Evaluate your resume using the same criteria as UMSI’s Career Development Office.
     </div>
-    </main>
+  </main>
 
-  <footer>
-    <p>
-      University of Michigan School of Information
-    </p>
-  </footer>
+  <footer class="simple-footer">
+  <div class="footer-text">
+    <strong>University of Michigan School of Information (UMSI)</strong>
+    <p>1110 Geddes Ave., Ann Arbor, MI 48109-1079</p>
+    <p>Phone: +1 (734) 764-1817</p>
+    <p>Email: <a href="mailto:umsi@umich.edu">umsi@umich.edu</a></p>
+    <p>© 2025<span id="current-year"></span> The Regents of the University of Michigan</p>
+  </div>
+</footer>
+
+
 
 </body>
+
 </html>

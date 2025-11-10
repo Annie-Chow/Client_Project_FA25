@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,52 @@
   <title>Planning Your Job</title>
 </head>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const headerText = document.querySelector("header h1");
+
+    if (headerText) {
+      const fullText = headerText.textContent;
+      headerText.textContent = "";
+
+      let index = 0;
+      const typingSpeed = 120;
+      function typeLetter() {
+        headerText.textContent += fullText.charAt(index);
+        index++;
+        if (index < fullText.length) {
+          requestAnimationFrame(typeLetter);
+        }
+      }
+      typeLetter();
+    }
+  });
+</script>
+
+<script>
+  document.getElementById("current-year").innerText = new Date().getFullYear();
+</script>
+
 <body>
 
   <header>
     <a href="#maincontent">Skip to Main Content</a>
-    <img src="images/UMSI_signature_vertical_informal_solidblue.jpg" alt="UMSI Logo">
+
+    <div class="search-bar">
+      <form action="#" method="get">
+        <label for="site-search" class="visually-hidden">Search this site:</label>
+        <input type="search" id="site-search" name="q" placeholder="Search resources"
+          aria-label="Search through site content">
+        <button type="submit">Search</button>
+      </form>
+
+      <img src="images/UMSI_signature_vertical_informal_solidblue.jpg" alt="UMSI Logo">
+    </div>
+
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="resume.html">Resumes</a></li>
+        <li><a href="resume.html" class="active">Resumes</a></li>
         <li><a href="Planning_Your_Job.html">Planning Your Job</a></li>
         <li><a href="Art_Portfolio.html">Art Portfolio</a></li>
       </ul>
@@ -28,47 +66,59 @@
     <div class="planning_your_job" tabindex="0">
       <h2>Plan your job early at Umich!</h2>
       <p>
-        Building your career at Michigan begins with knowing the right resources — here are three, to help you get started.
-        The first one helps you through the steps you need to facilitate your professional growth. The second, the Career Path Navigator, illustrates real career paths that people have taken at the University of Michigan.
-        The third is designed to assist the partners of U-M faculty or staff members with a variety of job search resources. Additional Resources links to a compilation of valuable Web sites.
+        Building your career at Michigan begins with knowing the right resources — here are three, to help you get
+        started.
+        The first one helps you through the steps you need to facilitate your professional growth. The second, the
+        Career Path Navigator, illustrates real career paths that people have taken at the University of Michigan.
+        The third is designed to assist the partners of U-M faculty or staff members with a variety of job search
+        resources. Additional Resources links to a compilation of valuable Web sites.
       </p>
 
-      <iframe 
-        width="430" 
-        height="241" 
-        src="https://www.youtube.com/embed/WNIi8ytOkeU?si=qBjoEkMJ4PF2kNU7"
-        title="YouTube video player" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        referrerpolicy="strict-origin-when-cross-origin" 
-        allowfullscreen>
+      <iframe src="https://www.youtube.com/embed/GSjGeDYJ5Nk?rel=0&modestbranding=1&showinfo=0" allowfullscreen
+        title="Tutorial video: How to create an art portfolio">
       </iframe>
+
+
+
     </div>
 
     <div class="why" tabindex="0">
       <h2>Why it is important to plan early?</h2>
       <ul>
-        <li><strong>Resources for Career Development:</strong> University Human Resources provides resources for Career Development including career self-assessment, university resources, job search tools and career planning information.</li>
-        <li><strong>Career Path Navigator:</strong> Designed as a general guide to assist in your personal career planning, the Career Path Navigator shows how positions at U-M relate to other careers in the university. It helps to show the potential career path for a specific job. Additionally, you can see actual career transitions (promotions as well as transitioning careers) made by university staff members.</li>
-        <li><strong>Resources for Partners:</strong> Whether you are considering a move to the University of Michigan or you are already in the Ann Arbor area, University Human Resources provides job search information and resources for partners of U-M faculty or staff members.</li>
+        <li><strong>Resources for Career Development:</strong> University Human Resources provides resources for Career
+          Development including career self-assessment, university resources, job search tools and career planning
+          information.</li>
+        <li><strong>Career Path Navigator:</strong> Designed as a general guide to assist in your personal career
+          planning, the Career Path Navigator shows how positions at U-M relate to other careers in the university. It
+          helps to show the potential career path for a specific job. Additionally, you can see actual career
+          transitions (promotions as well as transitioning careers) made by university staff members.</li>
+        <li><strong>Resources for Partners:</strong> Whether you are considering a move to the University of Michigan or
+          you are already in the Ann Arbor area, University Human Resources provides job search information and
+          resources for partners of U-M faculty or staff members.</li>
       </ul>
     </div>
 
     <div class="benefits" tabindex="0">
       <h2>Benefits at the University of Michigan</h2>
       <p>
-        In addition to a career filled with purpose and opportunity, the University of Michigan offers a comprehensive benefits package to help you stay well, protect yourself and your family, and plan for a secure future. Benefits include:
+        In addition to a career filled with purpose and opportunity, the University of Michigan offers a comprehensive
+        benefits package to help you stay well, protect yourself and your family, and plan for a secure future. Benefits
+        include:
       </p>
       <ul>
         <li><strong>Generous time off</strong></li>
-        <li><strong>A retirement plan that provides two-for-one matching contributions with immediate vesting</strong></li>
+        <li><strong>A retirement plan that provides two-for-one matching contributions with immediate vesting</strong>
+        </li>
         <li><strong>Many choices for comprehensive health insurance</strong></li>
         <li><strong>Life insurance</strong></li>
         <li><strong>Long-term disability coverage</strong></li>
-        <li><strong>6. Flexible spending accounts for healthcare and dependent care expenses</strong></li>
+        <li><strong>Flexible spending accounts for healthcare and dependent care expenses</strong></li>
       </ul>
       <p>
-        Eligibility for benefits is based on your job group, your appointment percentage and the length of your appointment.
-        <a href="https://hr.umich.edu/benefits-wellness" target="_blank">Learn more about employee benefits and eligibility</a> and download the Comprehensive Benefits for Faculty and Staff flier.
+        Eligibility for benefits is based on your job group, your appointment percentage and the length of your
+        appointment.
+        <a href="https://hr.umich.edu/benefits-wellness" target="_blank">Learn more about employee benefits and
+          eligibility</a> and download the Comprehensive Benefits for Faculty and Staff flier.
       </p>
     </div>
 
@@ -77,40 +127,54 @@
 
       <h3>U-M Ann Arbor</h3>
       <p>
-        Temporary job opportunities for non-students on the Ann Arbor campus are posted by each hiring department and can be searched using this site. Temporary employment can lead to meaningful and rewarding employment at the university.
+        Temporary job opportunities for non-students on the Ann Arbor campus are posted by each hiring department and
+        can be searched using this site. Temporary employment can lead to meaningful and rewarding employment at the
+        university.
         <a href="https://careers.umich.edu/search-jobs">View current opportunities for temporary positions.</a>
       </p>
 
       <h3>U-M Flint</h3>
       <p>
-        Temporary job opportunities for Flint Campus students and non-students are available by 
+        Temporary job opportunities for Flint Campus students and non-students are available by
         <a href="https://careers.umich.edu/search-jobs?career_interest">searching on this site.</a>
-        Please type “Flint” in the keyword search. Questions should be directed to the Flint Campus Office of University Human Resources at (810) 762-3150 or 
+        Please type “Flint” in the keyword search. Questions should be directed to the Flint Campus Office of University
+        Human Resources at (810) 762-3150 or
         <a href="mailto:flint.hrd@umich.edu">flint.hrd@umich.edu</a>.
       </p>
 
       <h3>U-M Dearborn</h3>
       <p>
-        Temporary job opportunities for Dearborn Campus students and non-students are available by 
-        <a href="https://careers.umich.edu/search-jobs?career_interest">searching on this site.</a> 
-        Please type “Dearborn” in the keyword search. Questions should be directed to the Dearborn Campus Office of University Human Resources at (313) 593-5190 or 
+        Temporary job opportunities for Dearborn Campus students and non-students are available by
+        <a href="https://careers.umich.edu/search-jobs?career_interest">searching on this site.</a>
+        Please type “Dearborn” in the keyword search. Questions should be directed to the Dearborn Campus Office of
+        University Human Resources at (313) 593-5190 or
         <a href="mailto:humanresourcesdearborn@umich.edu">humanresourcesdearborn@umich.edu</a>.
       </p>
     </div>
 
     <div class="photo_p1" tabindex="0">
       <h2>Our previous career event at Umich</h2>
-      <img src="images/MCOMMONS-Festifall2025-21.jpg" width="430" height="241" alt="MCOMMONS-Festifall2025-21">
-      <img src="images/MCOMMONS-Festifall2025-23.jpg" width="430" height="241" alt="MCOMMONS-Festifall2025-23">
+      <div class="photo_p2" tabindex="0">
+        <img src="images/MCOMMONS-Festifall2025-21.jpg" width="430" height="241" alt="MCOMMONS-Festifall2025-21">
+        <img src="images/MCOMMONS-Festifall2025-23.jpg" width="430" height="241" alt="MCOMMONS-Festifall2025-23">
+      </div>
     </div>
 
   </main>
 
-  <footer>
-    <p>
-      Resources for Partners | Whether you are considering a move to the University of Michigan or you are already in the Ann Arbor area, University Human Resources provides 
-    </p>
+  <footer class="simple-footer">
+    <div class="footer-text">
+      <strong>University of Michigan School of Information (UMSI)</strong>
+      <p>1110 Geddes Ave., Ann Arbor, MI 48109-1079</p>
+      <p>Phone: +1 (734) 764-1817</p>
+      <p>Email: <a href="mailto:umsi@umich.edu">umsi@umich.edu</a></p>
+      <p>© 2025<span id="current-year"></span> The Regents of the University of Michigan</p>
+    </div>
   </footer>
 
+
+
+
 </body>
+
 </html>

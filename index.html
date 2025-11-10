@@ -9,14 +9,48 @@
   <title>UMSI Career Development Resource Hub</title>
 </head>
 
-<body>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const headerText = document.querySelector("header h1");
 
+    if (headerText) {
+      const fullText = headerText.textContent;
+      headerText.textContent = "";
+
+      let index = 0;
+      const typingSpeed = 120;
+      function typeLetter() {
+        headerText.textContent += fullText.charAt(index);
+        index++;
+        if (index < fullText.length) {
+          requestAnimationFrame(typeLetter);
+        }
+      }
+      typeLetter();
+    }
+  });
+</script>
+
+<script>
+  document.getElementById("current-year").innerText = new Date().getFullYear();
+</script>
+
+<body>
   <header>
     <a href="#maincontent">Skip to Main Content</a>
-    <img src="images/UMSI_signature_vertical_informal_solidblue.jpg" alt="UMSI Logo">
+    <div class="search-bar">
+      <form action="#" method="get">
+        <label for="site-search" class="visually-hidden">Search this site:</label>
+        <input type="search" id="site-search" name="q" placeholder="Search resources"
+          aria-label="Search through site content">
+        <button type="submit">Search</button>
+      </form>
+      <img src="images/UMSI_signature_vertical_informal_solidblue.jpg" alt="UMSI Logo">
+    </div>
+
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="resume.html">Resumes</a></li>
         <li><a href="Planning_Your_Job.html">Planning Your Job</a></li>
         <li><a href="Art_Portfolio.html">Art Portfolio</a></li>
@@ -32,10 +66,10 @@
       <p>
         Ready to take the next step toward your future career? The UMSI Career Development Resource Hub is your one-stop
         shop for trusted guidance, practical tools, and the latest information to help you thrive as a student and
-        job-seeker. Whether you're just starting your exploration or preparing to launch your career, you’ll find
+        job-seeker. Whether you're just starting your exploration or preparing to launch your career, you'll find
         everything you need—organized and easy to access.
       </p>
-      <iframe width="430" height="241" src="https://www.youtube.com/embed/GSjGeDYJ5Nk?si=qhxJPRTIT___x8hG"
+      <iframe src="https://www.youtube.com/embed/GSjGeDYJ5Nk?si=qhxJPRTIT___x8hG"
         title="Tutorial video: How to use UMSI Career Resource Hub"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
@@ -88,15 +122,34 @@
         <a href="https://umich.instructure.com/courses/137916" target="_blank">Visit the CDO website</a> or
         <a href="https://www.si.umich.edu/about-umsi/getting-umsi" target="_blank">find us on campus</a> to schedule a
         session or say hello!
+          The UMSI Career Development Office (CDO) provides individualized career support tailored to each student's
+        professional goals. Our team works closely with students through every stage of the job search process — from
+        exploring industries and refining career interests, to building résumés and portfolios, practicing interview
+        skills, and navigating job offers.
+
+          We offer a wide range of resources including one-on-one coaching appointments, specialized workshops,
+        employer-hosted info sessions, networking events, and comprehensive online guides created with UMSI students in
+        mind. Whether you are preparing application materials, researching internship opportunities, or shaping a
+        long-term career strategy, the CDO has tools and expertise to support your journey.
+
+         Students can schedule appointments through our website, attend events listed on the CDO calendar, or explore
+        curated digital resources anytime. We also encourage you to visit us in person on campus—our team is always
+        happy to answer questions, talk through ideas, or help you plan your next steps. Stop by to schedule a session,
+        join an event, or simply say hello. We look forward to supporting you!
       </p>
     </div>
   </main>
 
-  <footer>
-    <p>
-      University of Michigan School of Information
-    </p>
+  <footer class="simple-footer">
+    <div class="footer-text">
+      <strong>University of Michigan School of Information (UMSI)</strong>
+      <p>1110 Geddes Ave., Ann Arbor, MI 48109-1079</p>
+      <p>Phone: +1 (734) 764-1817</p>
+      <p>Email: <a href="mailto:umsi@umich.edu">umsi@umich.edu</a></p>
+      <p>© 2025<span id="current-year"></span> The Regents of the University of Michigan</p>
+    </div>
   </footer>
+
 
 </body>
 
